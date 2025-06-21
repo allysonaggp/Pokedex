@@ -35,4 +35,11 @@ pokeApi.getPokemons = (offset = 0, limit = 5 ) => {
         .then((pokemonDetails) => pokemonDetails)
 
 }
+pokeApi.getPokemonByNumber = (number) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${number}`
+
+    return fetch(url)
+        .then(response => response.json())
+        .then(pokeApi.convertPokeApiDetailToPokemon)
+}
 
